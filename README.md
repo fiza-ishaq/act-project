@@ -54,7 +54,7 @@
 
 The application is fully deployed, optimized, and publicly accessible online:
 
-🔗 **Live Application URL**: [https://new-folder-fawn-iota.vercel.app/](https://new-folder-fawn-iota.vercel.app/)
+🔗 **Live Application URL**: [https://vercel.com/hirelens-ai/act-project](https://new-folder-fawn-iota.vercel.app/)
 
 - **Platform**: Vercel
 - **Status**: 🟢 Active & Fully Functional
