@@ -10,7 +10,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js_Express-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://expressjs.com/)
 [![Vercel](https://img.shields.io/badge/Deployed_on_Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://new-folder-fawn-iota.vercel.app/)
 
-**HireLens AI — Because great candidates shouldn't be filtered out by rigid keyword matching or unconscious bias.**
+**HireLens AI — Intelligent, unbiased resume screening and talent pipeline management powered by Google Gemini.**
 
 </div>
 
@@ -18,98 +18,109 @@
 
 ## 📌 Table of Contents
 
-- [The Problem & Target Audience](#-the-problem--target-audience)
-- [Live Deployed Application](#-live-deployed-application)
-- [Core Features & Capabilities](#-core-features--capabilities)
-- [AI Architecture & System Prompt](#-ai-architecture--system-prompt)
-- [AI Recruiter Copilot](#-ai-recruiter-copilot)
-- [Interview & Scorecard Logistics](#-interview--scorecard-logistics)
-- [Technology Stack](#-technology-stack)
-- [How to Run Locally in VS Code](#-how-to-run-locally-in-vs-code)
-- [Assignment Criteria Evaluation](#-assignment-criteria-evaluation)
+- [a. App Name, Purpose & Problem Solved](#a-app-name-purpose--problem-solved)
+- [b. Live Deployed URL](#b-live-deployed-url)
+- [c. Core Features List](#c-core-features-list)
+- [d. The AI Feature & System Prompt](#d-the-ai-feature--system-prompt)
+- [e. Tools, Services & AI Models Used](#e-tools-services--ai-models-used)
+- [f. Screenshots of the App in Action](#f-screenshots-of-the-app-in-action)
+- [g. How to Run the Project Locally](#g-how-to-run-the-project-locally)
 
 ---
 
-## 🎯 The Problem & Target Audience
+## a. App Name, Purpose & Problem Solved
 
-### The Real-World Problem
+### 🏷️ App Name
+**HireLens AI** — *Fair Resume Screening & Intelligent Candidate Evaluation Platform*
 
-> **Every day, HR teams lose exceptional talent because traditional ATS software relies on primitive keyword matching or allows unconscious bias during screening.**
+### 💡 What It Does
+**HireLens AI** is an end-to-end, AI-powered Applicant Tracking System (ATS) and talent evaluation dashboard. It ingests candidate resumes across multiple formats (PDF, Word `.docx`, images, or plain text), parses and extracts structured profile data (skills, experience, contact details), evaluates candidates objectively against customizable Job Descriptions (JDs), and calculates weighted match scores (0–100%). It also streamlines the recruiting workflow with anti-bias guardrails, side-by-side candidate comparisons, interview scheduling with downloadable `.ics` calendar invites, evaluator scorecards, and an interactive AI Recruiter Copilot.
 
-Modern hiring teams, technical recruiters, and HR professionals face an overwhelming volume of candidate applications. For a single open position, hundreds of resumes flood in. Traditional Applicant Tracking Systems (ATS) and manual initial reviews create three critical bottlenecks:
+### 🎯 The Real Problem It Solves & For Whom
 
-1. **🔍 Qualified Talent Slipped Through**: Candidates with equivalent experience phrased differently get automatically rejected by rigid keyword filters.
-2. **🧠 Hours Wasted on Manual Screening**: Recruiters spend 10–15 hours per vacancy manually skimming CVs, calculating experience alignment, and setting up interview logs.
-3. **⚖️ Unconscious Bias in Screening**: Manual reviewers are susceptible to unconscious bias based on candidate names, age, graduation dates, gender, or photos — introducing non-job-related factors into early screening.
+#### The Problem:
+1. **Keyword-Filter Bottlenecks**: Traditional ATS tools rely on rigid string matching. High-performing candidates who express their experience using different phrasing or synonyms get automatically discarded.
+2. **Exhaustive Manual Review Hours**: HR managers and recruiters waste 10–15 hours per vacant role skimming through hundreds of resumes, manually extracting contact info, calculating qualification alignment, and compiling candidate shortlists.
+3. **Unconscious Bias in Screening**: Human reviewers are susceptible to implicit bias based on candidate names, age, graduation years, gender, ethnic indicators, or profile photos — introducing non-job-relevant bias during early resume filtering.
 
-### Who It's For
-
-| Target User | Primary Value Delivered |
-|:---|:---|
-| **👔 HR Managers & Recruiters** | Automates initial screening, generates candidate match scores (0–100%), extracts verified contact info, and manages pipeline stages. |
-| **💻 Technical Hiring Teams** | Provides clear skill gap matrices, weighted scoring breakdowns, and side-by-side candidate comparison tables. |
-| **⚖️ Talent Acquisition Operations** | Enforces anti-bias guardrails (filtering age, gender, race, photos, etc.) and provides transparent fairness audit logs. |
-
----
-
-## 🌐 Live Deployed Application
-
-- **Live Public URL**: [https://new-folder-fawn-iota.vercel.app/](https://new-folder-fawn-iota.vercel.app/)
-- **Deployment Platform**: Vercel (Production Build)
-- **Status**: Live, operational, and publicly accessible for live evaluation.
+#### For Whom:
+- **👔 HR Managers & Talent Recruiters**: Automate resume parsing, instantly filter top candidates, manage candidate pipeline stages, and dispatch structured interview invites.
+- **💻 Technical Hiring Leads & Panel Evaluators**: Review itemized skill gap matrices, evaluate candidate strengths vs. missing requirements, and rate candidate performance on standardized scorecards.
+- **⚖️ Talent Acquisition Operations**: Enforce strict anti-bias guidelines during resume screening with transparent fairness audit logs and blind review toggles.
 
 ---
 
-## 🚀 Core Features & Capabilities
+## b. Live Deployed URL
 
-### 1. Multi-Format Resume Processing
-- **Format Support**: Drag-and-drop or upload PDF (`pdfjs-dist`), Word documents (`mammoth`), images (`png`, `jpg`), and plain text (`.txt`).
-- **Multimodal AI Reading**: Sends structured text and image base64 directly to Gemini 3.6 Flash for unified evaluation.
+The application is fully deployed, optimized, and publicly accessible online:
 
-### 2. Verified Contact Detail Extraction
-- Automatically parses candidate **Email** and **Phone Number** from document text.
-- Applies regex fallback logic and standardizes missing contact details so no record is left incomplete.
+🔗 **Live Application URL**: [https://new-folder-fawn-iota.vercel.app/](https://new-folder-fawn-iota.vercel.app/)
 
-### 3. Objective AI Candidate Evaluation Engine
-- **Match Score (0–100%)**: Weighted fit score based on 5 customizable criteria:
-  - Required Skills (40%)
-  - Relevant Work Experience (30%)
-  - Education (10%)
-  - Certifications (10%)
-  - Projects & Responsibilities (10%)
-- **Strengths & Skill Gap Matrix**: Itemized breakdown of verified candidate strengths versus missing required qualifications.
-
-### 4. Anti-Bias & Fairness Audit Framework
-- Strict system prompt guardrails that explicitly strip protected attributes: Age, Gender, Ethnicity, Religion, Marital Status, Disability, and Photos.
-- Includes a **Blind Review Mode** to obscure candidate names/emails during initial screening.
-- Interactive transparency audit log explaining evaluation logic.
-
-### 5. HR Candidate Pipeline Management
-- Move candidates across hiring stages: *New*, *Screened*, *Phone Screen*, *Shortlisted*, *Interview*, *Rejected*.
-- Real-time search by name, skill, email, or resume text.
-- Filter and sort by score, stage, or recommendation status.
-- Interactive candidate detail modal with tabs for Analysis, Profile, Interview & Scorecard, Source CV, Audit Log, Timeline, and Recruiter Notes.
-
-### 6. Interview Logistics & Scorecard Management
-- **Round Scheduling**: Schedule Technical, System Design, Culture Fit, or Hiring Manager rounds with date/time, interviewer assignees, and video meeting URLs.
-- **Downloadable `.ics` Invite**: Generate downloadable iCalendar (.ics) files to sync directly with Google Calendar / Outlook.
-- **Copyable Meeting Invite**: One-click formatted interview text invite to email candidates.
-- **Evaluator Scorecard Rubric**: 4-dimension rating rubric (Technical Depth, Problem Solving, Communication, Culture Fit) with 1–5 star ratings, hiring decision badges (*Strong Hire*, *Hire*, *Hold*, *Do Not Hire*), and assessment notes saved directly to candidate records.
-
-### 7. Side-by-Side Candidate Comparison Matrix
-- Compare 2 or more candidates side-by-side on overall match scores, sub-scores, strengths, and missing requirements.
-
-### 8. AI Recruiter Copilot (Interactive Assistant)
-- Context-aware recruiter chat assistant to compare applicants, draft interview emails, explain score gaps, and suggest requirement adjustments.
+- **Platform**: Vercel
+- **Status**: 🟢 Active & Fully Functional
 
 ---
 
-## 🤖 AI Architecture & System Prompt
+## c. Core Features List
 
-### AI Processing Flow
-HireLens AI proxies all AI evaluations through secure server endpoints (`/api/evaluate-resume` and `/api/ai-copilot`). API keys are maintained exclusively in server environment variables, preventing key exposure to the client. The backend utilizes **Google Gemini 3.6 Flash** with automated retry mechanisms to handle transient network errors seamlessly.
+### 📄 1. Multi-Format Resume Parser & OCR
+- **Supported File Formats**: Drag-and-drop or select PDF files (`pdfjs-dist`), Microsoft Word documents (`mammoth`), document images (`PNG`, `JPG`), or paste raw text.
+- **Multimodal Document Processing**: Converts document pages to high-resolution images or structured text strings for direct Gemini AI inspection.
 
-### System Prompt & Instructions
+### 📊 2. Weighted Candidate Match Engine (0–100%)
+- **Customizable Job Description**: Paste any target Job Description (or choose from built-in role presets like Senior Full-Stack Engineer, Product Manager, Data Scientist, DevOps Engineer).
+- **5-Criterion Weighted Breakdown**:
+  - **Required Technical Skills**: 40% weight
+  - **Relevant Work Experience**: 30% weight
+  - **Educational Alignment**: 10% weight
+  - **Certifications & Training**: 10% weight
+  - **Key Projects & Impact**: 10% weight
+- **Granular Recommendations**: Categorizes applicants as *Strong Match*, *Potential Match*, or *Low Match*.
+
+### 🔍 3. Itemized Skill Gap & Strengths Matrix
+- **Verified Strengths**: Highlights key technical competencies and achievements verified directly in the candidate's resume.
+- **Missing Requirements**: Isolates missing job requirements or experience gaps to help interviewers target specific areas during interviews.
+
+### 🛡️ 4. Anti-Bias Guardrails & Fairness Audit
+- **Protected Attribute Scrubbing**: Explicitly filters out non-job-relevant demographic attributes (Age, Gender, Race, Religion, Disability, Photos, Marital Status).
+- **Blind Review Mode**: Allows recruiters to toggle "Blind Mode" to hide candidate names, emails, and contact details during initial resume evaluations.
+- **Fairness Audit Log**: Generates a transparent, itemized audit log detailing the exact evaluation criteria used and verifying that no protected attributes influenced the candidate's score.
+
+### 📅 5. Interview Logistics & Scheduler Hub
+- **Round Configuration**: Schedule Technical Deep-Dive, System Design, Culture Fit, or Hiring Manager rounds with assigned dates, times, interviewers, and video call links.
+- **One-Click `.ics` Calendar Invite Generator**: Export standard iCalendar (.ics) event files that import natively into Google Calendar, Outlook, or Apple Calendar.
+- **Formatted Email Invites**: One-click copy for recruiter interview invitations.
+
+### 🏆 6. Evaluator Scorecard & Rubric System
+- **4-Dimension Assessment**: Rate candidates on *Technical Depth*, *Problem Solving*, *Communication*, and *Culture Fit* using 1–5 star ratings.
+- **Hiring Decision Badges**: Assign standardized decisions (*Strong Hire*, *Hire*, *Hold*, *Do Not Hire*).
+- **Candidate File Integration**: Save scorecards and interviewer notes directly to the candidate's permanent timeline record.
+
+### 🔄 7. Candidate Pipeline Stage Management
+- **Stage Navigation**: Move candidates through workflow stages (*New*, *Screened*, *Phone Screen*, *Shortlisted*, *Interview*, *Rejected*).
+- **Real-Time Search & Filters**: Search candidates instantly by name, email, skills, or resume text; filter by match score or stage.
+- **Export & Import**: Export full candidate rosters as structured JSON files or reset demo data.
+
+### ⚖️ 8. Side-by-Side Candidate Comparison
+- Compare 2 or 3 candidates simultaneously side-by-side on overall match scores, weighted sub-scores, verified strengths, and missing requirements.
+
+### 💬 9. Interactive AI Recruiter Copilot Assistant
+- Context-aware chat assistant that answers recruiter questions about candidate files, compares candidates, drafts interview outreach emails, and provides hiring recommendations.
+
+---
+
+## d. The AI Feature & System Prompt
+
+### 🧠 How the AI Feature Works
+HireLens AI utilizes **Google Gemini 3.6 Flash** via the official `@google/genai` TypeScript SDK. Resume evaluations are executed securely via a backend API route (`/api/evaluate-resume`), keeping secret API keys hidden from client browsers.
+
+When a resume is submitted:
+1. The backend extracts text or document image base64.
+2. It pairs the document with the target Job Description and sends them to Gemini 3.6 Flash with a strict JSON schema specification.
+3. Gemini evaluates the candidate against weighted criteria, strips demographic bias, extracts verified contact info, and returns a structured JSON payload.
+
+### 📜 Exact System Prompt & Instructions Behind the AI Feature
+
 ```text
 You are HireLens AI, an advanced HR resume screening assistant designed to support enterprise recruiters during candidate evaluation.
 
@@ -131,57 +142,116 @@ RULES:
 3. Evaluation Criteria & Scoring (Weighted):
    - Required skills (40%), Relevant experience (30%), Education (10%), Certifications (10%), Projects (10%)
 
-Output JSON Schema: candidateName, email, phone, matchScore (0-100), subScores, extractedProfile, matchedRequirements, missingRequirements, strengths, weaknesses, summary, recommendation, fairnessAudit.
+Output JSON Schema:
+{
+  "candidateName": string,
+  "email": string,
+  "phone": string,
+  "matchScore": number (0-100),
+  "subScores": {
+    "skills": number (0-100),
+    "experience": number (0-100),
+    "education": number (0-100),
+    "certifications": number (0-100),
+    "projects": number (0-100)
+  },
+  "extractedProfile": {
+    "summary": string,
+    "topSkills": string[],
+    "experienceYears": number,
+    "education": string[],
+    "certifications": string[],
+    "workHistory": Array<{ company: string, role: string, duration: string, achievements: string[] }>
+  },
+  "matchedRequirements": string[],
+  "missingRequirements": string[],
+  "strengths": string[],
+  "weaknesses": string[],
+  "summary": string,
+  "recommendation": "Strong Match" | "Potential Match" | "Low Match",
+  "fairnessAudit": {
+    "protectedAttributesFiltered": string[],
+    "unbiasedAssessmentConfirmed": boolean,
+    "explanation": string
+  }
+}
 ```
 
 ---
 
-## 🛠️ Technology Stack
+## e. Tools, Services & AI Models Used
 
-- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS 4, Lucide Icons, Motion, Recharts
-- **Backend / Server**: Node.js, Express, `esbuild`, `tsx`
-- **AI SDK & Model**: `@google/genai` (Google Gemini 3.6 Flash)
-- **Document Extractors**: `pdfjs-dist` (PDF parsing), `mammoth` (Word .docx parsing)
-- **Hosting & Deployment**: Vercel
+| Category | Technology / Service | Description / Role in Application |
+| :--- | :--- | :--- |
+| **AI Model** | **Google Gemini 3.6 Flash** (`@google/genai`) | High-speed multimodal AI model for resume evaluation, structured data extraction, anti-bias auditing, and copilot reasoning. |
+| **Frontend Framework** | **React 19 & TypeScript** | Component-driven UI architecture built with strict type safety. |
+| **Styling & Icons** | **Tailwind CSS 4 & Lucide Icons** | Utility-first responsive styling with custom dark slate/indigo UI theme and vector icons. |
+| **Build Tooling** | **Vite & esbuild** | Ultra-fast client bundling and server compilation. |
+| **Backend Server** | **Node.js & Express** | Custom Express server handling secure API proxy routes (`/api/evaluate-resume`, `/api/ai-copilot`). |
+| **Document Parsers** | **`pdfjs-dist` & `mammoth`** | Client/Server parsers for extracting text and image data from PDF and Microsoft Word `.docx` documents. |
+| **Deployment Platform**| **Vercel** | Live serverless cloud hosting and continuous deployment. |
 
 ---
 
-## 💻 How to Run Locally in VS Code
+## f. Screenshots of the App in Action
+
+### 1. Main Candidate Dashboard & Talent Pipeline
+*Overview of candidate match scores, stage distribution, active filters, and search bar.*
+
+![HireLens AI Dashboard](./assets/dashboard_preview.jpg)
+*Placeholder Syntax:* `![Main Candidate Dashboard](https://via.placeholder.com/800x400?text=Main+Candidate+Dashboard+Screenshot)`
+
+---
+
+### 2. Candidate Evaluation & Anti-Bias Audit Modal
+*Detailed breakdown of candidate weighted match scores, verified strengths vs missing skill gaps, and the anti-bias audit log.*
+
+![Candidate Evaluation Breakdown](./assets/candidate_eval.jpg)
+*Placeholder Syntax:* `![Candidate Evaluation Breakdown](https://via.placeholder.com/800x400?text=Candidate+Evaluation+Modal+Screenshot)`
+
+---
+
+### 3. Interview Logistics Scheduler & Evaluator Scorecard
+*Interview round scheduling with `.ics` calendar export and the 4-dimension 1–5 star evaluator scorecard rubric.*
+
+![Interview & Scorecard Hub](./assets/interview_hub.jpg)
+*Placeholder Syntax:* `![Interview & Scorecard Hub](https://via.placeholder.com/800x400?text=Interview+Logistics+%26+Scorecard+Screenshot)`
+
+---
+
+## g. How to Run the Project Locally
 
 ### Prerequisites
-- **Node.js**: v18+ installed on your computer.
-- **VS Code**: Installed with terminal access.
-- **Gemini API Key**: Obtain a free key from [Google AI Studio](https://aistudio.google.com/).
+- **Node.js**: Version 18.x or higher installed.
+- **Git**: Installed on your system.
+- **Gemini API Key**: A free API key from [Google AI Studio](https://aistudio.google.com/).
 
-### Step-by-Step Setup Guide
+### Step-by-Step Local Setup Guide
 
 1. **Clone the Repository**:
    ```bash
-   git clone <YOUR_GITHUB_REPO_URL>
+   git clone https://github.com/your-username/hirelens-ai.git
    cd hirelens-ai
    ```
 
-2. **Open in VS Code**:
-   - Launch VS Code and open the project directory (`File` > `Open Folder...`).
-
-3. **Install Dependencies**:
+2. **Install Dependencies**:
    ```bash
    npm install
    ```
 
-4. **Configure Environment Variables**:
-   - Create a `.env` file in the root directory:
-     ```env
-     GEMINI_API_KEY=your_actual_gemini_api_key_here
-     ```
+3. **Configure Environment Variables**:
+   Create a `.env` file in the project root directory:
+   ```env
+   GEMINI_API_KEY=your_actual_gemini_api_key_here
+   ```
 
-5. **Start Development Server**:
+4. **Start Development Server**:
    ```bash
    npm run dev
    ```
-   - Access the live local preview at `http://localhost:3000`.
+   Open your browser and navigate to `http://localhost:3000`.
 
-6. **Build & Start Production Server**:
+5. **Build and Run Production Server**:
    ```bash
    npm run build
    npm start
@@ -189,14 +259,8 @@ Output JSON Schema: candidateName, email, phone, matchScore (0-100), subScores, 
 
 ---
 
-## 📋 Assignment Criteria Evaluation
+<div align="center">
 
-| Criteria | Assessment | Implementation Details |
-| :--- | :---: | :--- |
-| **1. Original Idea** | ✅ **10/10** | Solves a real-world problem in HR talent acquisition (resume evaluation bottleneck & unconscious screening bias). |
-| **2. Complete & Functional App** | ✅ **10/10** | End-to-end functionality including resume parsing, Gemini evaluation, pipeline management, search, candidate comparison, interview scheduling, evaluator scorecard, notes, and bulk actions. |
-| **3. AI Feature Driven by Instructions** | ✅ **10/10** | Powered by Google Gemini 3.6 Flash with strict custom instructions, bias guardrails, and weighted evaluation schemas. |
-| **4. Live Deployed URL** | ✅ **10/10** | Deployed and working live at: [https://new-folder-fawn-iota.vercel.app/](https://new-folder-fawn-iota.vercel.app/) |
-| **5. Public GitHub Repository** | ✅ **10/10** | Structured for GitHub public repository hosting with no committed secrets. |
-| **6. Comprehensive README** | ✅ **10/10** | Complete project report covering problem statement, AI prompt, stack, features, interview logistics, and setup instructions. |
+**HireLens AI** — Built with ❤️ for fair, efficient, and transparent recruitment.
 
+</div>
