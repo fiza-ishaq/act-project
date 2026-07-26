@@ -258,8 +258,4 @@ Output JSON Schema:
 
 ---
 
-<div align="center">
 
-**HireLens AI** — Built with ❤️ for fair, efficient, and transparent recruitment.
-
-</div>
