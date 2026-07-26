@@ -1,4 +1,4 @@
-# 🧠 HireLens AI — Fair Resume Screening & Intelligent Candidate Evaluation Platform
+# 🧠 HireLens AI
 
 <div align="center">
 
@@ -54,7 +54,7 @@
 
 The application is fully deployed, optimized, and publicly accessible online:
 
-🔗 **Live Application URL**: [https://act-project-indol.vercel.app/](https://new-folder-fawn-iota.vercel.app/)
+🔗 **Live Application URL**: [https://act-project-indol.vercel.app/](https://act-project-indol.vercel.app/)
 
 - **Platform**: Vercel
 - **Status**: 🟢 Active & Fully Functional
@@ -230,8 +230,8 @@ Output JSON Schema:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/hirelens-ai.git
-   cd hirelens-ai
+   git clone https://github.com/fiza-ishaq/act-project
+   cd act-project
    ```
 
 2. **Install Dependencies**:
