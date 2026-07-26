@@ -199,7 +199,7 @@ Output JSON Schema:
 *Overview of candidate match scores, stage distribution, active filters, and search bar.*
 
 ![HireLens AI Dashboard](./assets/dashboard_preview.jpg)
-*Placeholder Syntax:* `![Main Candidate Dashboard](https://via.placeholder.com/800x400?text=Main+Candidate+Dashboard+Screenshot)`
+
 
 ---
 
@@ -207,7 +207,7 @@ Output JSON Schema:
 *Detailed breakdown of candidate weighted match scores, verified strengths vs missing skill gaps, and the anti-bias audit log.*
 
 ![Candidate Evaluation Breakdown](./assets/candidate_eval.jpg)
-*Placeholder Syntax:* `![Candidate Evaluation Breakdown](https://via.placeholder.com/800x400?text=Candidate+Evaluation+Modal+Screenshot)`
+
 
 ---
 
@@ -215,7 +215,6 @@ Output JSON Schema:
 *Interview round scheduling with `.ics` calendar export and the 4-dimension 1–5 star evaluator scorecard rubric.*
 
 ![Interview & Scorecard Hub](./assets/interview_hub.jpg)
-*Placeholder Syntax:* `![Interview & Scorecard Hub](https://via.placeholder.com/800x400?text=Interview+Logistics+%26+Scorecard+Screenshot)`
 
 ---
 

@@ -245,15 +245,15 @@ ${evalData?.disclaimer || 'This evaluation is intended to assist human recruiter
       <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-5xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden text-slate-100 animate-in fade-in zoom-in-95 duration-150">
         
         {/* Header Bar */}
-        <div className="p-5 border-b border-slate-800 bg-slate-900 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-4 min-w-0">
-            <div className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-indigo-400 shrink-0 shadow-inner">
-              <User className="w-6 h-6" />
+        <div className="p-4 border-b border-slate-800 bg-slate-900 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-indigo-400 shrink-0 shadow-inner">
+              <User className="w-5 h-5" />
             </div>
 
             <div className="min-w-0">
-              <div className="flex items-center gap-2 flex-wrap">
-                <h2 className="text-xl font-bold text-white tracking-tight truncate">{displayName}</h2>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <h2 className="text-lg font-bold text-white tracking-tight truncate">{displayName}</h2>
                 {evalData?.recommendation && (
                   <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${getRecommendationBadge(evalData.recommendation)}`}>
                     {evalData.recommendation}
@@ -266,7 +266,7 @@ ${evalData?.disclaimer || 'This evaluation is intended to assist human recruiter
                 )}
               </div>
 
-              <div className="flex items-center gap-3 text-xs text-slate-400 mt-1 flex-wrap font-mono">
+              <div className="flex items-center gap-2 text-xs text-slate-400 mt-0.5 flex-wrap font-mono">
                 <span className="flex items-center gap-1 text-slate-300">
                   <Briefcase className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                   {jobDescription?.title || 'Job Position'}
@@ -288,11 +288,11 @@ ${evalData?.disclaimer || 'This evaluation is intended to assist human recruiter
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-1.5 shrink-0">
             {/* Blind Mode Toggle */}
             <button
               onClick={() => setIsBlindMode(!isBlindMode)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold border flex items-center gap-1.5 transition-all cursor-pointer ${
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold border flex items-center gap-1.5 transition-all cursor-pointer ${
                 isBlindMode 
                   ? 'bg-amber-950/80 border-amber-600 text-amber-300' 
                   : 'bg-slate-800 border-slate-700 text-slate-300 hover:text-white'
@@ -300,13 +300,13 @@ ${evalData?.disclaimer || 'This evaluation is intended to assist human recruiter
               title="Toggle Blind Review Mode (Anonymizes Personal Info)"
             >
               {isBlindMode ? <EyeOff className="w-3.5 h-3.5 text-amber-400" /> : <Eye className="w-3.5 h-3.5" />}
-              <span>{isBlindMode ? 'Blind Mode Active' : 'Blind Review'}</span>
+              <span className="hidden sm:inline">{isBlindMode ? 'Blind Mode Active' : 'Blind Review'}</span>
             </button>
 
             <button
               onClick={handlePrint}
               title="Print Summary Report"
-              className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+              className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
             >
               <Printer className="w-4 h-4" />
             </button>
@@ -314,7 +314,7 @@ ${evalData?.disclaimer || 'This evaluation is intended to assist human recruiter
             <button
               onClick={handleDownloadReport}
               title="Export ATS Report File"
-              className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+              className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
             >
               <Download className="w-4 h-4" />
             </button>
@@ -323,7 +323,7 @@ ${evalData?.disclaimer || 'This evaluation is intended to assist human recruiter
               <button
                 onClick={() => setShowDeleteConfirm(true)}
                 title="Delete Candidate"
-                className="p-2 text-rose-400 hover:text-rose-300 hover:bg-rose-950/80 border border-rose-900/60 rounded-lg transition-colors cursor-pointer flex items-center gap-1 text-xs"
+                className="p-1.5 text-rose-400 hover:text-rose-300 hover:bg-rose-950/80 border border-rose-900/60 rounded-lg transition-colors cursor-pointer flex items-center gap-1 text-xs"
               >
                 <Trash2 className="w-4 h-4" />
                 <span className="hidden sm:inline">Delete</span>
@@ -332,7 +332,7 @@ ${evalData?.disclaimer || 'This evaluation is intended to assist human recruiter
 
             <button
               onClick={onClose}
-              className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+              className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -340,7 +340,7 @@ ${evalData?.disclaimer || 'This evaluation is intended to assist human recruiter
         </div>
 
         {/* HR Pipeline Bar */}
-        <div className="bg-slate-950 border-b border-slate-800 px-5 py-2.5 flex items-center justify-between text-xs overflow-x-auto gap-4">
+        <div className="bg-slate-950 border-b border-slate-800 px-4 py-2 flex items-center justify-between text-xs overflow-x-auto gap-3">
           <div className="flex items-center gap-2 shrink-0 text-slate-400">
             <span className="font-semibold text-slate-300">HR Recruitment Pipeline:</span>
             {stageUpdatedToast && (
@@ -388,132 +388,115 @@ ${evalData?.disclaimer || 'This evaluation is intended to assist human recruiter
           </div>
         </div>
 
+        {/* Scrollable Body */}
+        <div className="overflow-y-auto flex-1">
+          
         {/* Stage Context Banner */}
-        <div className="bg-slate-900/90 border-b border-slate-800 px-5 py-2 flex items-center justify-between text-xs gap-3">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-indigo-400 uppercase tracking-wider text-[10px]">Active Stage Info:</span>
-            {candidate.hrStage === 'Interview' && (
-              <span className="text-emerald-300 flex items-center gap-1.5 font-medium">
-                🎤 <strong className="text-white">Interview Stage Active:</strong> Interview scheduling, evaluator scorecard, and candidate meeting brief enabled.
-              </span>
-            )}
-            {candidate.hrStage === 'Phone Screen' && (
-              <span className="text-blue-300 flex items-center gap-1.5 font-medium">
-                📞 <strong className="text-white">Phone Screen Stage:</strong> Initial recruiter screening active. Phone: <span className="font-mono text-white">{displayPhone}</span>.
-              </span>
-            )}
-            {candidate.hrStage === 'Shortlisted' && (
-              <span className="text-amber-300 flex items-center gap-1.5 font-medium">
-                ⭐ <strong className="text-white">Shortlisted Stage:</strong> Recommended for hiring manager review ({evalData?.matchScore || 0}% match score).
-              </span>
-            )}
-            {candidate.hrStage === 'Screened' && (
-              <span className="text-cyan-300 flex items-center gap-1.5 font-medium">
-                🔍 <strong className="text-white">Screened Stage:</strong> AI resume analysis complete. Evaluation details loaded.
-              </span>
-            )}
-            {candidate.hrStage === 'New' && (
-              <span className="text-indigo-300 flex items-center gap-1.5 font-medium">
-                🆕 <strong className="text-white">New Application:</strong> Candidate profile received and ready for initial review.
-              </span>
-            )}
-            {candidate.hrStage === 'Rejected' && (
-              <span className="text-rose-300 flex items-center gap-1.5 font-medium">
-                ❌ <strong className="text-white">Rejected Stage:</strong> Candidate archived. Notes and audit logs preserved.
-              </span>
-            )}
-          </div>
+        <div className="bg-slate-900/90 border-b border-slate-800 px-4 py-1.5 flex items-center text-xs gap-2">
+          <span className="font-semibold text-indigo-400 uppercase tracking-wider text-[10px] shrink-0">Active Stage Info:</span>
+          {candidate.hrStage === 'Interview' && (
+            <span className="text-emerald-300 font-medium">🎤 Interview Stage Active: Scheduling, evaluator scorecard, and candidate meeting brief enabled.</span>
+          )}
+          {candidate.hrStage === 'Phone Screen' && (
+            <span className="text-blue-300 font-medium">📞 Phone Screen Stage: Initial recruiter screening active.</span>
+          )}
+          {candidate.hrStage === 'Shortlisted' && (
+            <span className="text-amber-300 font-medium">⭐ Shortlisted Stage: Recommended for hiring manager review ({evalData?.matchScore || 0}% match score).</span>
+          )}
+          {candidate.hrStage === 'Screened' && (
+            <span className="text-cyan-300 font-medium">🔍 Screened Stage: AI resume analysis complete. Evaluation details loaded.</span>
+          )}
+          {candidate.hrStage === 'New' && (
+            <span className="text-indigo-300 font-medium">🆕 New Application: Candidate profile received and ready for initial review.</span>
+          )}
+          {candidate.hrStage === 'Rejected' && (
+            <span className="text-rose-300 font-medium">❌ Rejected Stage: Candidate archived. Notes and audit logs preserved.</span>
+          )}
         </div>
 
-        {/* Modal Navigation Tabs */}
-        <div className="flex border-b border-slate-800 px-5 bg-slate-900/50 overflow-x-auto">
+        {/* Modal Navigation Tabs - Sticky */}
+        <div className="sticky top-0 z-10 flex border-b border-slate-800 px-4 bg-slate-900/95 backdrop-blur-sm overflow-x-auto">
           <button
             onClick={() => setActiveTab('analysis')}
-            className={`px-4 py-3 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
+            className={`px-3 py-2.5 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               activeTab === 'analysis'
                 ? 'border-indigo-400 text-indigo-400 font-bold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-3.5 h-3.5" />
             Match & Scoring Breakdown
           </button>
-
           <button
             onClick={() => setActiveTab('profile')}
-            className={`px-4 py-3 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
+            className={`px-3 py-2.5 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               activeTab === 'profile'
                 ? 'border-indigo-400 text-indigo-400 font-bold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
-            <User className="w-4 h-4" />
+            <User className="w-3.5 h-3.5" />
             Extracted Profile & Skills
           </button>
-
           <button
             onClick={() => setActiveTab('questions')}
-            className={`px-4 py-3 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
+            className={`px-3 py-2.5 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               activeTab === 'questions'
                 ? 'border-indigo-400 text-indigo-400 font-bold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
-            <Calendar className="w-4 h-4 text-emerald-400" />
+            <Calendar className="w-3.5 h-3.5 text-emerald-400" />
             Interview & Scorecard
           </button>
-
           <button
             onClick={() => setActiveTab('resume')}
-            className={`px-4 py-3 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
+            className={`px-3 py-2.5 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               activeTab === 'resume'
                 ? 'border-indigo-400 text-indigo-400 font-bold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
-            <FileText className="w-4 h-4" />
+            <FileText className="w-3.5 h-3.5" />
             Source CV Text
           </button>
-
           <button
             onClick={() => setActiveTab('audit')}
-            className={`px-4 py-3 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
+            className={`px-3 py-2.5 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               activeTab === 'audit'
                 ? 'border-indigo-400 text-indigo-400 font-bold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
             Fairness & Bias Log
           </button>
-
           <button
             onClick={() => setActiveTab('timeline')}
-            className={`px-4 py-3 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
+            className={`px-3 py-2.5 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               activeTab === 'timeline'
                 ? 'border-indigo-400 text-indigo-400 font-bold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
-            <History className="w-4 h-4" />
+            <History className="w-3.5 h-3.5" />
             Activity History
           </button>
-
           <button
             onClick={() => setActiveTab('notes')}
-            className={`px-4 py-3 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
+            className={`px-3 py-2.5 text-xs font-medium border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               activeTab === 'notes'
                 ? 'border-indigo-400 text-indigo-400 font-bold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
-            <MessageSquare className="w-4 h-4" />
+            <MessageSquare className="w-3.5 h-3.5" />
             Recruiter Notes {candidate.notes ? '•' : ''}
           </button>
         </div>
 
-        {/* Modal Body Content */}
-        <div className="p-5 overflow-y-auto space-y-6 flex-1">
+        {/* Tab Content */}
+        <div className="p-4 sm:p-5 space-y-5">
           {activeTab === 'analysis' && evalData && (
             <div className="space-y-6">
               
@@ -1109,9 +1092,10 @@ ${evalData?.disclaimer || 'This evaluation is intended to assist human recruiter
             </div>
           )}
         </div>
+        </div>
 
         {/* Modal Footer */}
-        <div className="p-4 border-t border-slate-800 bg-slate-900 flex items-center justify-between">
+        <div className="p-3 sm:p-4 border-t border-slate-800 bg-slate-900 flex items-center justify-between">
           <div className="text-xs text-slate-400 font-mono">
             ID: {candidate.id}
           </div>
