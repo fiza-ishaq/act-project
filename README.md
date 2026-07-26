@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Click_to_Launch-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://new-folder-fawn-iota.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Click_to_Launch-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://act-project-indol.vercel.app/)
 [![React 19](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Gemini AI](https://img.shields.io/badge/Gemini_3.6_Flash-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
