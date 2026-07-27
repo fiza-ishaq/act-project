@@ -271,4 +271,6 @@ Output JSON Schema:
 
 ---
 
+## 🎯 Our Mission
 
+HireLens AI exists to make hiring fair, faster, and transparent. By replacing biased resume screening and rigid keyword matching with explainable AI, it helps recruiters identify the best candidates based on real skills, experience, and job fit — not assumptions. The result is faster hiring, reduced bias, and hiring decisions backed by clear, transparent reasoning.
