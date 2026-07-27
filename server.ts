@@ -281,43 +281,30 @@ INSTRUCTIONS:
   }
 });
 
-async function startServer() {
-  if (process.env.NODE_ENV !== "production") {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: "spa",
-    });
-    app.use(vite.middlewares);
-  } else {
-    const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
-    app.get("*", (_req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
-    });
-  }
-}
-
 export { app };
 
-// On Vercel: serverless runtime imports the app — skip listener.
-// Local dev: start Express with Vite middleware.
-// Production (npm start): start Express with static files.
 if (process.env.VERCEL) {
+  // Vercel serverless: serve static files + SPA catch-all
   const distPath = path.join(process.cwd(), "dist");
   app.use(express.static(distPath));
   app.get("*", (_req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
 } else if (process.env.NODE_ENV !== "production") {
-  const vite = await createViteServer({
-    server: { middlewareMode: true },
-    appType: "spa",
-  });
-  app.use(vite.middlewares);
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`HireLens AI Dev Server running on http://localhost:${PORT}`);
-  });
+  // Dev mode: use Vite middleware for HMR
+  const startDev = async () => {
+    const vite = await createViteServer({
+      server: { middlewareMode: true },
+      appType: "spa",
+    });
+    app.use(vite.middlewares);
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`HireLens AI Dev Server running on http://localhost:${PORT}`);
+    });
+  };
+  startDev();
 } else {
+  // Production: serve static files + SPA catch-all + listen
   const distPath = path.join(process.cwd(), "dist");
   app.use(express.static(distPath));
   app.get("*", (_req, res) => {
