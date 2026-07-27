@@ -75,7 +75,7 @@ The application is fully deployed, optimized, and publicly accessible online:
   - **Educational Alignment**: 10% weight
   - **Certifications & Training**: 10% weight
   - **Key Projects & Impact**: 10% weight
-- **Granular Recommendations**: Categorizes applicants as *Strong Match*, *Potential Match*, or *Low Match*.
+- **Granular Recommendations**: Categorizes applicants as *Strong Match*, *Partial Match*, or *Weak Match*.
 
 ### 🔍 3. Itemized Skill Gap & Strengths Matrix
 - **Verified Strengths**: Highlights key technical competencies and achievements verified directly in the candidate's resume.
