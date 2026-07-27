@@ -82,8 +82,9 @@ RULES:
 1. General Rules:
    - Use ONLY the information explicitly stated in the job description and the resume file/text.
    - Do NOT infer or guess missing qualifications or experience.
-   - Extract actual email addresses (e.g., alex@example.com) and phone numbers if present in the resume text or document image.
-   - If contact email is not stated in the document, construct a standard professional email based on candidate's name (e.g., firstname.lastname@applicant.org). Always provide a valid email.
+  - Extract an email address only if it is explicitly present in the resume.
+  - If no email address is stated, return an empty string.
+  - Never invent, guess, or generate contact information.
 
 2. Fairness & Bias Guardrails:
    - NEVER consider protected personal attributes: Age, Gender, Race/ethnicity, Religion, Nationality, Marital status, Disability, Photo, or Personal Opinions.
@@ -136,8 +137,8 @@ ${resumeText ? `CANDIDATE RESUME TEXT:\n${resumeText}` : 'CANDIDATE RESUME IS AT
           type: Type.OBJECT,
           properties: {
             candidateName: { type: Type.STRING, description: "Extracted or provided candidate full name" },
-            email: { type: Type.STRING, description: "Extracted candidate email address or 'Not Mentioned'" },
-            phone: { type: Type.STRING, description: "Extracted candidate phone number or 'Not Mentioned'" },
+            email: { type: Type.STRING, description: "Extracted candidate email address or empty string if not found" },
+            phone: { type: Type.STRING, description: "Extracted candidate phone number or empty string if not found" },
             matchScore: { type: Type.INTEGER, description: "Overall match score from 0 to 100" },
             confidenceLevel: { type: Type.STRING, enum: ["High", "Medium", "Low"] },
             subScores: {

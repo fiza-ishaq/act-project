@@ -103,13 +103,8 @@ export default function App() {
 
     const targetName = evaluation.candidateName || candidateName || 'Candidate';
 
-    if (!extractedEmail || extractedEmail === 'Not Mentioned') {
-      const cleanName = targetName.toLowerCase().replace(/[^a-z0-9]/g, '.').replace(/\.+/g, '.').replace(/^\.|\.$/g, '');
-      extractedEmail = `${cleanName || 'candidate'}@applicant.org`;
-    }
-
     if (!extractedPhone || extractedPhone === 'Not Mentioned') {
-      extractedPhone = `+1 (555) 019-${Math.floor(1000 + Math.random() * 9000)}`;
+      extractedPhone = undefined;
     }
 
     const finalEmail = extractedEmail;
