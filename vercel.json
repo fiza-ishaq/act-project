@@ -10,6 +10,7 @@
   },
   "routes": [
     { "source": "/api/(.*)", "destination": "/api" },
-    { "source": "/(.*)", "destination": "/api" }
+    { "handle": "filesystem" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

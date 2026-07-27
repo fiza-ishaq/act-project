@@ -284,12 +284,7 @@ INSTRUCTIONS:
 export { app };
 
 if (process.env.VERCEL) {
-  // Vercel serverless: serve static files + SPA catch-all
-  const distPath = path.join(process.cwd(), "dist");
-  app.use(express.static(distPath));
-  app.get("*", (_req, res) => {
-    res.sendFile(path.join(distPath, "index.html"));
-  });
+  // Vercel serverless: only API routes are needed — static files served by Vercel edge
 } else if (process.env.NODE_ENV !== "production") {
   // Dev mode: use Vite middleware for HMR
   const startDev = async () => {
