@@ -1,6 +1,5 @@
 import express from "express";
 import path from "path";
-import { createServer as createViteServer } from "vite";
 import { GoogleGenAI, Type } from "@google/genai";
 import dotenv from "dotenv";
 
@@ -286,8 +285,9 @@ export { app };
 if (process.env.VERCEL) {
   // Vercel serverless: only API routes are needed — static files served by Vercel edge
 } else if (process.env.NODE_ENV !== "production") {
-  // Dev mode: use Vite middleware for HMR
-  const startDev = async () => {
+  // Dev mode: use Vite middleware for HMR (dynamic import to avoid importing Vite on Vercel)
+  (async () => {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
@@ -296,8 +296,7 @@ if (process.env.VERCEL) {
     app.listen(PORT, "0.0.0.0", () => {
       console.log(`HireLens AI Dev Server running on http://localhost:${PORT}`);
     });
-  };
-  startDev();
+  })();
 } else {
   // Production: serve static files + SPA catch-all + listen
   const distPath = path.join(process.cwd(), "dist");
