@@ -295,10 +295,35 @@ async function startServer() {
       res.sendFile(path.join(distPath, "index.html"));
     });
   }
-
- app.listen(PORT, "0.0.0.0", () => {
-  console.log(`HireLens AI Server running on http://localhost:${PORT}`);
-});
 }
 
-startServer();
+export { app };
+
+// On Vercel: serverless runtime imports the app — skip listener.
+// Local dev: start Express with Vite middleware.
+// Production (npm start): start Express with static files.
+if (process.env.VERCEL) {
+  const distPath = path.join(process.cwd(), "dist");
+  app.use(express.static(distPath));
+  app.get("*", (_req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+} else if (process.env.NODE_ENV !== "production") {
+  const vite = await createViteServer({
+    server: { middlewareMode: true },
+    appType: "spa",
+  });
+  app.use(vite.middlewares);
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`HireLens AI Dev Server running on http://localhost:${PORT}`);
+  });
+} else {
+  const distPath = path.join(process.cwd(), "dist");
+  app.use(express.static(distPath));
+  app.get("*", (_req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`HireLens AI Server running on http://localhost:${PORT}`);
+  });
+}
